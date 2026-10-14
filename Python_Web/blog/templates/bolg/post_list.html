@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}文章列表 - 迷你博客{% endblock %}
+
+{% block content %}
+<h1>最新文章</h1>
+
+{% if posts %}
+    {% for post in posts %}
+    <article>
+        <h2>
+            <a href="{% url 'blog:post_detail' slug=post.slug %}">{{ post.title }}</a>
+            {% if post.category %}
+                <span class="tag">{{ post.category.name }}</span>
+            {% endif %}
+        </h2>
+        <div class="meta">
+            发布于 {{ post.published_at|date:"Y-m-d H:i" }}
+        </div>
+        <p>{{ post.content|truncatewords:30 }}</p>
+    </article>
+    {% endfor %}
+{% else %}
+    <p>还没有已发布的文章。</p>
+{% endif %}
+{% endblock %}

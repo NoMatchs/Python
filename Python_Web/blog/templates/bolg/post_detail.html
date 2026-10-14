@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }} - 迷你博客{% endblock %}
+
+{% block content %}
+<article>
+    <h1>{{ post.title }}</h1>
+    <div class="meta">
+        {% if post.category %}<span class="tag">{{ post.category.name }}</span>{% endif %}
+        · {{ post.published_at|date:"Y-m-d H:i" }}
+    </div>
+    <div style="margin-top: 20px; line-height: 1.8;">
+        {{ post.content|linebreaks }}
+    </div>
+</article>
+
+<p style="margin-top: 30px;">
+    <a href="{% url 'blog:post_list' %}">← 返回列表</a>
+</p>
+{% endblock %}

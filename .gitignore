@@ -1,0 +1,11 @@
+# 忽略 Gradle 构建缓存和输出文件
+.gradle/
+build/
+
+# 忽略 IDE 配置文件 (可选，通常建议忽略)
+.idea/
+*.iml
+
+# 忽略系统文件 (可选)
+.DS_Store
+Thumbs.db

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}迷你博客{% endblock %}</title>
+    <style>
+        body { font-family: system-ui, sans-serif; max-width: 800px; margin: 40px auto; padding: 0 20px; color: #333; }
+        header { border-bottom: 2px solid #eee; padding-bottom: 12px; margin-bottom: 24px; }
+        header a { text-decoration: none; color: #0366d6; font-size: 20px; font-weight: bold; }
+        article { border-bottom: 1px solid #eee; padding: 16px 0; }
+        article h2 a { color: #0366d6; text-decoration: none; }
+        .meta { color: #888; font-size: 13px; margin-top: 4px; }
+        .tag { background: #eef3f8; color: #0366d6; padding: 2px 8px; border-radius: 4px; font-size: 12px; margin-left: 8px; }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="{% url 'blog:post_list' %}">📝 迷你博客</a>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>
